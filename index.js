@@ -63,7 +63,7 @@ function output(input) {
   }else if(text=="activar sonido" || text=="habla" ){
     product = "estoy hablando";
     document.getElementById('hablar').value="SI";
-  }else if(text=="desactivar sonido" || text=="callate" || text=="apagar sonido" ){
+  }else if(text=="desactivar sonido" || text=="callate" || text=="silencio" || text=="apagar sonido" ){
     product = "Bueno, ya no hablo";
     document.getElementById('hablar').value="NO";
   }else if(text.includes('-') ){
@@ -91,6 +91,7 @@ function output(input) {
     addChat("---", "3. Ir a ulises");
     addChat("---", "4. Ir a la pagina principal");
     addChat("---", "5. Ir a moodle");
+    addChat("---", "tambien puedes pedirme que hable o que haga silencio");
   }
 
 }
