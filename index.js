@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const inputField = document.getElementById("input");
   inputField.addEventListener("keydown", (e) => {
-    if (e.code === "Enter") {
+    if (e.keyCode === 13) {
       let input = inputField.value;
       inputField.value = "";
       output(input);
@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+function agregar(){
+    var txt = document.getElementById("text").value;
+    document.getElementById("result").innerHTML = txt;
+}
 function output(input) {
   let product;
   let ofrecerServicios;
