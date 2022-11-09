@@ -1,30 +1,14 @@
 // Options the user could type in
 const prompts = [
   ["hola", "buenas", "buen dia", "buenos dias", "hl","buen día","buenos días","buenas tardes","buenas noches"],
-  ["Como estas", "Como va tu vida?", "Como vas", "y tu?"],
-
-  ["how old are you"],
-  ["who are you", "are you human", "are you bot", "are you human or bot"],
-  ["who created you", "who made you"],
-  [
-    "your name please",
-    "your name",
-    "may i know your name",
-    "what is your name",
-    "what call yourself"
-  ],
-  ["i love you"],
-  ["happy", "good", "fun", "wonderful", "fantastic", "cool"],
-  ["bad", "bored", "tired"],
-  ["help me", "tell me story", "tell me joke"],
-  ["ah", "yes", "ok", "okay", "nice"],
-  ["bye", "good bye", "goodbye", "see you later"],
-  ["what should i eat today"],
+  ["como estas", "como va tu vida?", "como vas", "y tu?"],
+  ["cuantos a", "que edad tienes", "edad", "cuando te crearon", "fecha de creacion"],
+  ["quien eres", "quien eres tu", "como te llamas", "eres robot o humano","eres robot","eres humano", "quien es usted", "cual es tu nombre", "dime quien eres"],
+  ["te amo","te quiero"],
+  ["adios", "hasta luego", "chao", "bye"],
   ["bro"],
-  ["what", "why", "how", "where", "when"],
-  ["no","not sure","maybe","no thanks"],
   [""],
-  ["haha","ha","lol","hehe","funny","joke"]
+  ["haha","ha","lol","hehe","jaja","jaaj"]
 ]
 
 // Possible responses, in corresponding order
@@ -36,44 +20,34 @@ const replies = [
     "exelente y tu?",
     "muy bien y tu?"
   ],
+  ["Segun mi acta de nacimiento, tengo ....um espera"],
   [
-    "Nothing much",
-    "About to go to sleep",
-    "Can you guess?",
-    "I don't know actually"
+    "Hola, yo soy una porción de codigo fuente, me llamo Chatbot Locator, mucho gusto",
+    "Yo me llamo Chatbot Locator, soy un conjunto de unos y ceros 1010100101001",
+    "Yo soy cortan... que diga Chatbot Locator",
+    "Yo soy sir... que diga Chatbot Locator"
   ],
-  ["I am infinite"],
-  ["I am just a bot", "I am a bot. What are you?"],
-  ["The one true God, JavaScript"],
-  ["I am nameless", "I don't have a name"],
-  ["I love you too", "Me too"],
-  ["Have you ever felt bad?", "Glad to hear it"],
-  ["Why?", "Why? You shouldn't!", "Try watching TV"],
-  ["What about?", "Once upon a time..."],
-  ["Tell me a story", "Tell me a joke", "Tell me about yourself"],
-  ["Bye", "Goodbye", "See you later"],
-  ["Sushi", "Pizza"],
+  ["Yo tambien", "Yo mas"],
+  ["Hasta luego", "Chao", "Adios"],
   ["Bro!"],
-  ["Great question"],
-  ["That's ok","I understand","What do you want to talk about?"],
-  ["Please say something :("],
-  ["Haha!","Good one!"]
+  ["Escribe algo.."],
+  ["Haha!","Gracioso"]
 ]
 
 // Random for any other user input
 
 const alternative = [
-  "Same",
-  "Go on...",
-  "Bro...",
-  "Try again",
-  "I'm listening...",
-  "I don't understand :/"
+  "Ammm",
+  "No te entiendo...",
+  "Ops, intenta de nuevo...",
+  "No conozco eso",
+  "Estoy escuchando...",
+  "No logro entenderte"
 ]
 
 // Whatever else you want :)
 
-const coronavirus = ["Please stay home", "Wear a mask", "Fortunately, I don't have COVID", "These are uncertain times"]
+const coronavirus = ["Quedate en casa", "Usa tapabocas", "Yo no tengo COVID"]
 const badResponse = ["Lamento saberlo... Dime que puedo hacer por ti?","Lo lamento... dime que puedo hacer por ti?","Que mal.. Dime que puedo hacer para que te sientas mejor"]
 const goodResponse =["Me alegro!!, cuentame, en que te puedo colaborar","Que bueno!, cuentame que estas buscando","Estupendo!, dime que puedo hacer por ti"]
 const localizarSalon ="Que salon buscas? recuerda buscar por sede-numeroSalon, ejemplo: 10-101"

@@ -18,6 +18,7 @@ function output(input) {
   let ofrecerServicios;
   let opcionSeleccionada;
   var mensajeUnico=false;
+  let hablar = false;
 
   let text = input.toLowerCase().replace(/[^\w\s]/gi, "").replace(/[\d]/gi, "").trim();
   text = text
@@ -41,6 +42,9 @@ function output(input) {
   }else if (text.match(/(bien|muy bien|excelente)/gi)) {
     product = goodResponse[Math.floor(Math.random() * goodResponse.length)];
     ofrecerServicios=true;
+  }else if (text.match(/(ayuda|help|menu|inicio|empezar)/gi)) {
+    product = "Puedes intentar";
+    ofrecerServicios=true;
   }else if(text.match(/(salon|Localizar un salon)/gi)||text=="1" || text=="1." ){
     product = localizarSalon;
     opcionSeleccionada = "1";
@@ -56,6 +60,12 @@ function output(input) {
   }else if(text.match(/(moodle|Ir a moodle)/gi)||text=="5" || text=="5." ){
     product = irMoodle;
     opcionSeleccionada = "5";
+  }else if(text=="activar sonido" || text=="habla" ){
+    product = "estoy hablando";
+    document.getElementById('hablar').value="SI";
+  }else if(text=="desactivar sonido" || text=="callate" || text=="apagar sonido" ){
+    product = "Bueno, ya no hablo";
+    document.getElementById('hablar').value="NO";
   }else if(text.includes('-') ){
     mensajeUnico=true;
       encontrarAjax(text);
@@ -134,6 +144,9 @@ function addChat(input, product) {
 
   setTimeout(() => {
     botText.innerHTML = `${product}`;
+    if(document.getElementById('hablar').value=="SI"){
+    textToSpeech(botText.innerText);
+    }
   }, 2000
   )
 
