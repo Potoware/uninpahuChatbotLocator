@@ -60,12 +60,17 @@ function output(input) {
 
   }
 
+
+
   if(!mensajeUnico){
     addChat(input, product);
   }else{
     mensajeUnico=false;
   }
 
+  if(opcionSeleccionada=="2"){
+    encontrarAjax("ALEATORIO");
+  }
   if(ofrecerServicios){
     addChat("---", "1. Localizar un salon");
     addChat("---", "2. Lugar aleatorio en uninpahu");
@@ -137,10 +142,11 @@ function encontrarAjax(salon){
  headers.append('Content-Type', 'application/json');
  headers.append('Accept', 'application/json');
 
-  if(salon.includes('-')){
+  if(salon.includes('-') || salon.includes('ALEATORIO')){
     $.ajax({
           type: 'POST',
           url: 'https://uninpahu-app-locator.herokuapp.com/api/ajax/search',
+          //url: 'http://localhost:8080/api/ajax/search',
           data: {
               arr: salon
           },
@@ -148,9 +154,14 @@ function encontrarAjax(salon){
           success: function (data) {
             if(data["encontrado"]){
               //Local
-              //addChat(salon,'Encontrado!! <a href=\"http://localhost:8080/locator/'+salon+"\">Ir al salon</a>");
-              //Cloud
-              addChat(salon,'Encontrado!! <a href=\"https://uninpahu-app-locator.herokuapp.com/locator/'+salon+"\">Ir al salon</a>");
+              salon=salon.replaceAll("ALEATORIO","---");
+              console.log(data["salon"]);
+              console.log(salon);
+              if(salon=="---"){
+                addChat(salon,'<a href=\"https://uninpahu-app-locator.herokuapp.com/locator/'+data["salon"]+"\">Ir a lugar misterioso</a>");
+              }else{
+                addChat(salon,'Encontrado!! <a href=\"https://uninpahu-app-locator.herokuapp.com/locator/'+data["salon"]+"\">Ir al salon</a>");
+              }
             }else{
               addChat(salon,'Umm.... el salon '+ salon+' aun no se encuentra registrado en la base de datos');
             }
